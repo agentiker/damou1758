@@ -33,28 +33,36 @@ export default async function CategoryPage({
   const posts = postsByCategory(category.name);
 
   return (
-    <div className="mx-auto max-w-5xl px-5 pt-14">
+    <div className="mx-auto max-w-6xl px-6 lg:px-8 pt-16">
       <Link
         href="/posts"
-        className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-white"
+        className="inline-flex items-center gap-2 text-xs tracking-[0.1em] uppercase text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-gold)]"
       >
-        <ArrowLeft className="h-4 w-4" /> 全部文章
+        <ArrowLeft className="h-3 w-3" /> 全部文章
       </Link>
 
-      <div className="mt-6 flex items-center gap-3">
-        <span className="h-8 w-1.5 rounded-full" style={{ backgroundColor: category.accent }} />
-        <h1 className="text-3xl font-extrabold text-white sm:text-4xl">{category.name}</h1>
+      <div className="mt-8">
+        <span className="section-label">DOMAIN</span>
+        <h1 className="mt-4 font-[var(--font-display)] text-3xl text-[var(--color-text-bright)] sm:text-4xl">
+          {category.name}
+        </h1>
+        <p className="mt-3 text-sm text-[var(--color-text-muted)]">{category.description}</p>
+        <p className="mt-1 font-[var(--font-mono)] text-xs text-[var(--color-text-muted)]">
+          {posts.length} 篇
+        </p>
       </div>
-      <p className="mt-3 text-neutral-400">{category.description}</p>
-      <p className="mt-1 text-sm text-neutral-600">共 {posts.length} 篇</p>
+
+      <div className="rule mt-8" />
 
       {posts.length === 0 ? (
-        <p className="mt-16 text-center text-neutral-500">这个主题还没有文章，敬请期待。</p>
+        <p className="mt-20 text-center text-[var(--color-text-muted)]">
+          这个主题还没有文章，敬请期待。
+        </p>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-12 sm:grid-cols-2">
           {posts.map((post, i) => (
-            <Reveal key={post.slug} delay={i * 0.04}>
-              <PostCard post={post} />
+            <Reveal key={post.slug} delay={i * 0.05}>
+              <PostCard post={post} index={i} />
             </Reveal>
           ))}
         </div>

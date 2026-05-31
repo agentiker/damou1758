@@ -27,6 +27,13 @@ Next.js 15 (App Router, RSC) · TypeScript · Tailwind v4 · Velite（内容层�
 
 不可变数据（不原地改对象）· 小文件高内聚 · 所有外部输入校验（已用 Zod）· 错误显式处理。
 
+## 部署（Vercel）
+
+- **GitHub 仓库**：`agentiker/damou1758`，Vercel Git 集成已接入，push main 自动构建上线。
+- **域名**：`damou1758.com`（metadataBase 和 RSS 默认值已写死；Vercel 面板绑定域名 + DNS 配置由站长操作）。
+- **Vercel 插件**：项目级启用 `vercel@claude-plugins-official`（`.claude/settings.json`），可通过 MCP 查部署状态、构建日志、运行时日志等。
+- **Analytics / Speed Insights**：`@vercel/analytics` + `@vercel/speed-insights` 已挂在根布局，Vercel 面板 Enable 后自动采集。
+
 ## 常用命令
 
 `pnpm dev` · `pnpm new "标题" --category "AI Coding"` · `pnpm check`（发布前必过）· `pnpm build`

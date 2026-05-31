@@ -12,28 +12,31 @@ export const metadata: Metadata = {
 export default function PostsPage() {
   const posts = publishedPosts();
   return (
-    <div className="mx-auto max-w-5xl px-5 pt-14">
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">全部文章</h1>
-      <p className="mt-3 text-neutral-400">共 {posts.length} 篇 · 按时间倒序</p>
+    <div className="mx-auto max-w-6xl px-6 lg:px-8 pt-16">
+      <span className="section-label">ARCHIVE</span>
+      <h1 className="mt-4 font-[var(--font-display)] text-3xl text-[var(--color-text-bright)] sm:text-4xl">
+        全部文章
+      </h1>
+      <p className="mt-3 text-sm text-[var(--color-text-muted)]">共 {posts.length} 篇</p>
 
-      {/* 分类入口 */}
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-3">
         {CATEGORIES.map((c) => (
           <Link
             key={c.slug}
             href={`/category/${c.slug}`}
-            className="rounded-full border border-[var(--color-border)] px-4 py-1.5 text-sm text-neutral-300 hover:bg-white/5"
-            style={{ borderColor: `${c.accent}55` }}
+            className="border border-[var(--color-border)] px-4 py-1.5 text-xs tracking-wide text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-gold-dim)] hover:text-[var(--color-gold)]"
           >
             {c.name}
           </Link>
         ))}
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="rule mt-8" />
+
+      <div className="mt-12 grid gap-12 sm:grid-cols-2">
         {posts.map((post, i) => (
-          <Reveal key={post.slug} delay={i * 0.04}>
-            <PostCard post={post} />
+          <Reveal key={post.slug} delay={i * 0.05}>
+            <PostCard post={post} index={i} />
           </Reveal>
         ))}
       </div>

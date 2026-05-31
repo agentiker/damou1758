@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
+import { Outfit, Young_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteNav } from "@/components/site/nav";
 import { SiteFooter } from "@/components/site/footer";
 import { profile } from "@/lib/content";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const youngSerif = Young_Serif({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: "400",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -28,8 +50,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
-      <body className="min-h-screen">
+    <html
+      lang="zh-CN"
+      className={`${outfit.variable} ${youngSerif.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="grain min-h-screen">
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />

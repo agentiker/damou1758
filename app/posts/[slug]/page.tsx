@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NextImage from "next/image";
 import Link from "next/link";
-import { CalendarDays, Clock, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { MDXContent } from "@/components/mdx/mdx-content";
 import {
   publishedPosts,
@@ -47,37 +47,39 @@ export default async function PostPage({
   const cat = categoryByName(post.category);
 
   return (
-    <article className="mx-auto max-w-3xl px-5 pt-12 pb-10">
+    <article className="mx-auto max-w-3xl px-6 lg:px-8 pt-16 pb-20">
+      {/* 面包屑 */}
       <Link
         href="/posts"
-        className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-white"
+        className="inline-flex items-center gap-2 text-xs tracking-[0.1em] uppercase text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-gold)]"
       >
-        <ArrowLeft className="h-4 w-4" /> 返回文章列表
+        <ArrowLeft className="h-3 w-3" /> 返回列表
       </Link>
 
-      <header className="mt-6">
-        <Link
-          href={`/category/${cat?.slug ?? ""}`}
-          className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
-          style={{
-            color: cat?.accent ?? "#a5b4fc",
-            backgroundColor: `${cat?.accent ?? "#6366f1"}1f`,
-          }}
-        >
-          {post.category}
-        </Link>
-        <h1 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+      <header className="mt-10">
+        <div className="flex items-center gap-3">
+          <Link
+            href={`/category/${cat?.slug ?? ""}`}
+            className="text-xs tracking-[0.12em] uppercase transition-colors hover:text-[var(--color-text-bright)]"
+            style={{ color: cat?.accent ?? "#c9a55a" }}
+          >
+            {post.category}
+          </Link>
+          <span className="text-[var(--color-border)]">·</span>
+          <time className="text-xs text-[var(--color-text-muted)]">{formatDate(post.date)}</time>
+          <span className="text-[var(--color-border)]">·</span>
+          <span className="text-xs text-[var(--color-text-muted)]">{post.metadata.readingTime} 分钟</span>
+        </div>
+
+        <h1 className="mt-6 font-[var(--font-display)] text-3xl leading-[1.15] text-[var(--color-text-bright)] sm:text-5xl">
           {post.title}
         </h1>
-        <p className="mt-4 text-lg text-neutral-400">{post.summary}</p>
-        <div className="mt-5 flex items-center gap-4 text-sm text-neutral-500">
-          <span className="inline-flex items-center gap-1">
-            <CalendarDays className="h-4 w-4" /> {formatDate(post.date)}
-          </span>
-          <span className="inline-flex items-center gap-1">
-            <Clock className="h-4 w-4" /> 约 {post.metadata.readingTime} 分钟
-          </span>
-        </div>
+
+        <p className="mt-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
+          {post.summary}
+        </p>
+
+        <div className="rule mt-8" />
       </header>
 
       {post.cover ? (
@@ -89,24 +91,27 @@ export default async function PostPage({
           placeholder="blur"
           blurDataURL={post.cover.blurDataURL}
           priority
-          className="mt-8 w-full rounded-2xl border border-[var(--color-border)]"
+          className="mt-10 w-full border border-[var(--color-border)]"
         />
       ) : null}
 
-      <div className="prose mt-10">
+      <div className="prose mt-12">
         <MDXContent code={post.content} />
       </div>
 
       {post.tags.length > 0 ? (
-        <div className="mt-12 flex flex-wrap gap-2 border-t border-[var(--color-border)] pt-6">
-          {post.tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-white/5 px-3 py-1 text-sm text-neutral-400"
-            >
-              #{t}
-            </span>
-          ))}
+        <div className="mt-16 pt-8">
+          <div className="rule mb-6" />
+          <div className="flex flex-wrap gap-3">
+            {post.tags.map((t) => (
+              <span
+                key={t}
+                className="border border-[var(--color-border)] px-3 py-1 text-xs tracking-wide text-[var(--color-text-muted)]"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       ) : null}
     </article>

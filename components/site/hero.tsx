@@ -3,7 +3,7 @@
 import Link from "next/link";
 import NextImage from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Rss } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 type Props = {
   name: string;
@@ -12,73 +12,86 @@ type Props = {
   avatar?: string;
 };
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] } },
+});
 
 export function Hero({ name, tagline, bio, avatar }: Props) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="grid-bg absolute inset-0 -z-10" />
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="mx-auto flex max-w-5xl flex-col items-center px-5 pt-20 pb-16 text-center sm:pt-28"
-      >
-        {avatar ? (
-          <motion.div variants={item}>
-            <NextImage
-              src={avatar}
-              alt={name}
-              width={96}
-              height={96}
-              className="mb-6 h-24 w-24 rounded-full border border-[var(--color-border)]"
-            />
-          </motion.div>
-        ) : null}
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <div className="hero-glow" />
 
-        <motion.p
-          variants={item}
-          className="mb-4 rounded-full border border-[var(--color-border)] px-4 py-1.5 text-sm text-neutral-400"
+      {/* 左侧边线 */}
+      <div className="absolute left-6 lg:left-8 top-20 bottom-20 w-px bg-[var(--color-border)]" />
+
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-24 sm:py-32">
+        <div className="grid gap-16 lg:grid-cols-[1fr_280px] lg:gap-24 items-center">
+          <div>
+            <motion.div {...fadeUp(0)}>
+              <span className="section-label">LOG 001 · INTRO</span>
+            </motion.div>
+
+            <motion.h1
+              {...fadeUp(0.15)}
+              className="mt-6 font-[var(--font-display)] text-5xl leading-[1.1] tracking-tight text-[var(--color-text-bright)] sm:text-7xl"
+            >
+              {tagline}
+            </motion.h1>
+
+            <motion.p
+              {...fadeUp(0.3)}
+              className="mt-8 max-w-lg text-lg leading-relaxed text-[var(--color-text-muted)]"
+            >
+              {bio}
+            </motion.p>
+
+            <motion.div {...fadeUp(0.45)} className="mt-10 flex items-center gap-5">
+              <Link
+                href="/posts"
+                className="inline-flex items-center gap-2 border border-[var(--color-gold-dim)] px-6 py-3 text-sm font-medium tracking-wide text-[var(--color-gold)] transition-all hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]"
+              >
+                阅读日志
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-bright)]"
+              >
+                了解更多 →
+              </Link>
+            </motion.div>
+          </div>
+
+          {avatar ? (
+            <motion.div {...fadeUp(0.3)} className="hidden lg:block">
+              <div className="relative">
+                <div className="absolute -inset-4 border border-[var(--color-border)] opacity-50" />
+                <NextImage
+                  src={avatar}
+                  alt={name}
+                  width={280}
+                  height={280}
+                  className="relative w-full grayscale-[30%] contrast-[1.05]"
+                />
+                <div className="absolute -bottom-3 -right-3 bg-[var(--color-bg)] px-3 py-1">
+                  <span className="section-label">{name}</span>
+                </div>
+              </div>
+            </motion.div>
+          ) : null}
+        </div>
+
+        {/* 底部滚动指示 */}
+        <motion.div
+          {...fadeUp(0.6)}
+          className="mt-20 flex items-center gap-3"
         >
-          AI Coding · Agent Engineering · AI Workflow
-        </motion.p>
-
-        <motion.h1
-          variants={item}
-          className="max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl"
-        >
-          <span className="text-gradient">{tagline}</span>
-        </motion.h1>
-
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400"
-        >
-          {bio}
-        </motion.p>
-
-        <motion.div variants={item} className="mt-9 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/posts"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-transform hover:scale-105"
-          >
-            看教程 <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            href="/rss.xml"
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
-          >
-            <Rss className="h-4 w-4" /> 订阅更新
-          </Link>
+          <ArrowDown className="h-3 w-3 text-[var(--color-text-muted)] animate-bounce" />
+          <span className="text-xs tracking-[0.15em] uppercase text-[var(--color-text-muted)]">
+            向下探索
+          </span>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
