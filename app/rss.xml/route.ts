@@ -1,7 +1,7 @@
 import { publishedPosts, profile } from "@/lib/content";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://example.com";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://damou1758.com";
 
 function escape(s: string): string {
   return s

@@ -1,18 +1,18 @@
 {
-  "name": "【占位：你的名字 / IP 名】",
-  "handle": "@your_handle",
-  "tagline": "用 AI 把一个人变成一支团队",
-  "bio": "每天分享可复用的 AI Coding、Agent 工程与 AI 工作流。这里记录我做 AI 产品、搭 Agent、设计自动化流水线时趟过的坑与方法，拿来即用。",
+  "name": "姜无维",
+  "handle": "@damou1758",
+  "tagline": "一个人，活成一支 AI 队伍",
+  "bio": "AI 超级个体。前大厂技术专家、企业级 Agent 产品经理、AI 解决方案咨询顾问。在这里分享 AI Coding、Agent 工程与 AI 工作流的实战方法，帮你把 AI 真正用进工作与生意里。",
   "avatar": "/avatar.png",
-  "email": "you@example.com",
+  "email": "hi@damou1758.com",
   "stats": [
-    { "label": "GitHub Stars", "value": "—" },
-    { "label": "全网粉丝", "value": "—" },
-    { "label": "已发教程", "value": "2" },
-    { "label": "开源项目", "value": "—" }
+    { "label": "定位", "value": "AI 超级个体" },
+    { "label": "前大厂", "value": "技术专家" },
+    { "label": "企业级 Agent", "value": "产品经理" },
+    { "label": "已发教程", "value": "2" }
   ],
   "socials": [
-    { "label": "GitHub", "href": "https://github.com/your_handle", "icon": "github" },
+    { "label": "GitHub", "href": "https://github.com/agentiker", "icon": "github" },
     { "label": "X / Twitter", "href": "https://x.com/your_handle", "icon": "twitter" },
     { "label": "Bilibili", "href": "https://space.bilibili.com/", "icon": "video" },
     { "label": "YouTube", "href": "https://youtube.com/@your_handle", "icon": "youtube" }

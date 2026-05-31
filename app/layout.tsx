@@ -6,7 +6,7 @@ import { profile } from "@/lib/content";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://damou1758.com"
   ),
   title: {
     default: `${profile.name} · AI Coding / Agent / Workflow`,
