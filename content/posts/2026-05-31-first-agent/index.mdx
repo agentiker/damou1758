@@ -1,0 +1,100 @@
+---
+title: 从零搭一个会用工具的 AI Agent
+date: 2026-05-31
+category: Agent Engineering
+tags: [Claude, 工具调用, MCP]
+summary: 不讲玄学，一步步把「会聊天的模型」改造成「会动手的 Agent」——加工具、跑循环、做校验。
+cover: ./assets/cover.png
+draft: false
+---
+
+聊天模型只会说话，**Agent 会动手**。两者的差别只有一个：能不能调用工具、并根据工具结果继续决策。这篇用最小例子讲清这条主线。
+
+<Callout type="info">
+本文示例以 Claude 的工具调用（tool use）为例，但同样的思路适用于任何支持 function calling 的模型。
+</Callout>
+
+## 一张图看懂 Agent 循环
+
+<Image src="/demo-diagram.svg" alt="Agent 推理-行动循环示意图" width={1200} height={600} />
+
+核心是一个循环：**模型决定调用哪个工具 → 执行工具 → 把结果喂回模型 → 模型继续**，直到任务完成。
+
+## 三步搭起来
+
+<Steps>
+
+### 定义工具
+
+把"能力"描述成模型能理解的 schema：
+
+```ts
+const tools = [
+  {
+    name: "get_weather",
+    description: "查询某城市的实时天气",
+    input_schema: {
+      type: "object",
+      properties: { city: { type: "string", description: "城市名" } },
+      required: ["city"],
+    },
+  },
+];
+```
+
+### 跑推理-行动循环
+
+```ts
+let messages = [{ role: "user", content: "上海今天适合跑步吗？" }];
+
+while (true) {
+  const res = await client.messages.create({ model, tools, messages });
+  if (res.stop_reason !== "tool_use") break; // 模型给出最终答复
+
+  const call = res.content.find((c) => c.type === "tool_use");
+  const result = await runTool(call.name, call.input); // 真正执行
+  messages.push({ role: "assistant", content: res.content });
+  messages.push({
+    role: "user",
+    content: [{ type: "tool_result", tool_use_id: call.id, content: result }],
+  });
+}
+```
+
+### 加校验与兜底
+
+工具的输入来自模型，**永远不要信任它**——先校验再执行：
+
+```ts
+function runTool(name, input) {
+  const tool = registry[name];
+  if (!tool) throw new Error(`未知工具: ${name}`);
+  const parsed = tool.schema.safeParse(input); // Zod 校验
+  if (!parsed.success) return { error: "参数不合法", detail: parsed.error.message };
+  return tool.run(parsed.data);
+}
+```
+
+</Steps>
+
+<Callout type="warning">
+最容易翻车的不是模型，而是**没校验的工具输入**。把每个工具当成对外 API 来防御。
+</Callout>
+
+## 视频讲解
+
+下面用一段视频走一遍完整调试过程：
+
+<YouTubeEmbed id="dQw4w9WgXcQ" title="Agent 循环实战演示" />
+
+也可以看 B 站版本：
+
+<BilibiliEmbed bvid="BV1GJ411x7h7" title="Agent 循环实战演示（B站）" />
+
+## 小结
+
+- Agent = 模型 + 工具 + 循环 + 校验
+- 先跑通最小循环，再逐步加记忆、可观测性、并发
+- 工具输入一律校验，错误显式返回给模型让它自我修正
+
+下一篇我们给这个 Agent 接上 **MCP**，让它即插即用地连上文件系统、数据库和你的私有工具。

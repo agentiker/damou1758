@@ -1,0 +1,20 @@
+{
+  "name": "【占位：你的名字 / IP 名】",
+  "handle": "@your_handle",
+  "tagline": "用 AI 把一个人变成一支团队",
+  "bio": "每天分享可复用的 AI Coding、Agent 工程与 AI 工作流。这里记录我做 AI 产品、搭 Agent、设计自动化流水线时趟过的坑与方法，拿来即用。",
+  "avatar": "/avatar.png",
+  "email": "you@example.com",
+  "stats": [
+    { "label": "GitHub Stars", "value": "—" },
+    { "label": "全网粉丝", "value": "—" },
+    { "label": "已发教程", "value": "2" },
+    { "label": "开源项目", "value": "—" }
+  ],
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/your_handle", "icon": "github" },
+    { "label": "X / Twitter", "href": "https://x.com/your_handle", "icon": "twitter" },
+    { "label": "Bilibili", "href": "https://space.bilibili.com/", "icon": "video" },
+    { "label": "YouTube", "href": "https://youtube.com/@your_handle", "icon": "youtube" }
+  ]
+}

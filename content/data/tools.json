@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Claude Code",
+    "category": "AI Coding",
+    "description": "Anthropic 官方命令行 Agent，可读写代码库、跑命令、自动完成多步工程任务。",
+    "href": "https://www.anthropic.com/claude-code",
+    "tag": "命令行"
+  },
+  {
+    "name": "Cursor",
+    "category": "AI Coding",
+    "description": "深度集成 AI 的代码编辑器，行内补全与全库改写都很顺手。",
+    "href": "https://cursor.com",
+    "tag": "编辑器"
+  },
+  {
+    "name": "Model Context Protocol",
+    "category": "Agent Engineering",
+    "description": "连接 Agent 与外部工具/数据源的开放协议，搭可用工具的智能体绕不开。",
+    "href": "https://modelcontextprotocol.io",
+    "tag": "协议"
+  },
+  {
+    "name": "LangGraph",
+    "category": "Agent Engineering",
+    "description": "用图来编排多步、可循环、带状态的 Agent 工作流。",
+    "href": "https://langchain-ai.github.io/langgraph/",
+    "tag": "编排"
+  },
+  {
+    "name": "n8n",
+    "category": "AI Workflow",
+    "description": "开源工作流自动化平台，把重复活儿连成可视化流水线。",
+    "href": "https://n8n.io",
+    "tag": "自动化"
+  },
+  {
+    "name": "Zapier",
+    "category": "AI Workflow",
+    "description": "无代码连接上千个应用，适合快速搭轻量自动化。",
+    "href": "https://zapier.com",
+    "tag": "无代码"
+  }
+]

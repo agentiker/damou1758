@@ -1,0 +1,29 @@
+[
+  {
+    "stage": "01",
+    "title": "AI Coding 入门",
+    "items": [
+      "用 Claude Code / Cursor 完成第一个真实需求",
+      "学会写清晰的需求与上下文，拿到高质量产出",
+      "掌握 diff 审阅与让 AI 自测的习惯"
+    ]
+  },
+  {
+    "stage": "02",
+    "title": "Agent Engineering 进阶",
+    "items": [
+      "理解工具调用（tool use）与 MCP 协议",
+      "搭一个会用工具、能多步推理的 Agent",
+      "给 Agent 加记忆、加校验、加可观测性"
+    ]
+  },
+  {
+    "stage": "03",
+    "title": "AI Workflow 自动化",
+    "items": [
+      "识别可自动化的重复劳动",
+      "用脚本 + Agent 串成可重复流水线",
+      "把流水线接入日常工具，持续迭代"
+    ]
+  }
+]

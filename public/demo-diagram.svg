@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="Arial, 'PingFang SC', sans-serif">
+  <rect width="1200" height="600" fill="#0b1020"/>
+  <!-- Model -->
+  <rect x="80" y="240" rx="16" width="240" height="120" fill="#6366f1"/>
+  <text x="200" y="295" fill="#fff" font-size="28" font-weight="700" text-anchor="middle">模型</text>
+  <text x="200" y="330" fill="#e0e7ff" font-size="18" text-anchor="middle">决定调用哪个工具</text>
+  <!-- Tool -->
+  <rect x="880" y="240" rx="16" width="240" height="120" fill="#0ea5e9"/>
+  <text x="1000" y="295" fill="#fff" font-size="28" font-weight="700" text-anchor="middle">工具</text>
+  <text x="1000" y="330" fill="#e0f2fe" font-size="18" text-anchor="middle">执行并返回结果</text>
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <path d="M330 270 H 870" stroke="#94a3b8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="600" y="250" fill="#cbd5e1" font-size="20" text-anchor="middle">tool_use 调用</text>
+  <path d="M870 330 H 330" stroke="#94a3b8" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <text x="600" y="370" fill="#cbd5e1" font-size="20" text-anchor="middle">tool_result 回传</text>
+  <text x="600" y="470" fill="#64748b" font-size="22" text-anchor="middle">循环直到任务完成</text>
+</svg>

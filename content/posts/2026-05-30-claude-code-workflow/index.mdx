@@ -1,0 +1,69 @@
+---
+title: 我的 Claude Code 日常工作流
+date: 2026-05-30
+category: AI Coding
+tags: [Claude Code, 工作流, 效率]
+summary: 把 AI 编码从「碰运气」变成「可复现」——一套我每天都在用的提示、审阅与提交流程。
+cover: ./assets/cover.png
+draft: false
+---
+
+很多人用 AI 写代码像抽卡：运气好一把过，运气差越改越乱。差别不在模型，在**流程**。这是我每天都在跑的一套。
+
+## 三条铁律
+
+<Callout type="tip">
+1. **先给上下文，再提需求**：贴关键文件、约定、报错，再说要做什么。
+2. **小步快跑**：一次只让它改一件事，改完就审。
+3. **让它自测**：要求跑测试/类型检查，把验证还给机器。
+</Callout>
+
+## 我的标准开场白
+
+```text
+背景：这是一个 Next.js + TypeScript 项目，用 pnpm。
+约定：不可变数据、小文件、所有外部输入都要校验。
+任务：给文章列表加按分类筛选，URL 用 ?category= 同步。
+完成后：跑 pnpm build 确认通过，并告诉我改了哪些文件。
+```
+
+## 审阅永远不能省
+
+AI 给的 diff 一定要读。我关注三点：
+
+- 有没有**偷偷改了不该改的地方**
+- 错误处理是不是被简化掉了
+- 有没有引入**硬编码**或重复逻辑
+
+```diff
+- const data = await res.json()
++ if (!res.ok) throw new Error(`请求失败: ${res.status}`)
++ const data = await res.json()
+```
+
+## 提交即发布
+
+我的内容站接了 Vercel，所以工作流的最后一步永远是：
+
+<Steps>
+
+### 本地校验
+
+```bash
+pnpm check   # 校验内容 frontmatter
+pnpm build   # 确认构建通过
+```
+
+### 提交并推送
+
+```bash
+git add .
+git commit -m "feat: 文章分类筛选"
+git push     # Vercel 自动构建并上线
+```
+
+</Steps>
+
+<Callout type="info">
+把"验证"固化进流程，AI 编码就从碰运气变成了可复现的工程。
+</Callout>
