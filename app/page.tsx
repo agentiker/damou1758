@@ -4,6 +4,7 @@ import { Hero } from "@/components/site/hero";
 import { Reveal } from "@/components/site/reveal";
 import { PostCard } from "@/components/site/post-card";
 import { CategoryCard } from "@/components/site/category-card";
+import { PluginCard } from "@/components/site/plugin-card";
 import {
   profile,
   tools,
@@ -12,6 +13,7 @@ import {
   featuredPosts,
   postsByCategory,
 } from "@/lib/content";
+import { featuredPlugins } from "@/lib/plugins";
 
 function SectionHeader({
   log,
@@ -52,6 +54,7 @@ function SectionHeader({
 
 export default function HomePage() {
   const featured = featuredPosts(4);
+  const featuredPluginList = featuredPlugins(6);
 
   return (
     <>
@@ -148,10 +151,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 精选插件 */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-24">
+        <SectionHeader
+          log="LOG 005 · PLUGINS"
+          title="精选 DSH 插件"
+          subtitle="DeepSeek Harness「一切皆插件」——挑几个真正好用的"
+          href="/plugins"
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredPluginList.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.05}>
+              <PluginCard plugin={p} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* 学习路线图 */}
       <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-24">
         <SectionHeader
-          log="LOG 005 · ROADMAP"
+          log="LOG 006 · ROADMAP"
           title="学习路径"
           subtitle="从入门到自动化的三个阶段"
         />
@@ -183,7 +203,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-24">
         <Reveal>
           <div className="border border-[var(--color-border)] p-10 sm:p-14">
-            <span className="section-label">LOG 006 · CONTACT</span>
+            <span className="section-label">LOG 007 · CONTACT</span>
             <h2 className="mt-4 font-[var(--font-display)] text-2xl text-[var(--color-text-bright)] sm:text-3xl">
               一起把一个人做成一支团队
             </h2>

@@ -11,3 +11,9 @@ export function formatDate(iso: string): string {
   const d = new Date(iso);
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 }
+
+/** 把 star 数格式化为「1.4k / 22.6k」这类紧凑形式。 */
+export function formatStars(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  return String(n);
+}

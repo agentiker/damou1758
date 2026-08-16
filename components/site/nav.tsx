@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { label: "文章", href: "/posts" },
+  { label: "插件", href: "/plugins" },
   { label: "关于", href: "/about" },
 ];
 

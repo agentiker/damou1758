@@ -1,0 +1,322 @@
+[
+  {
+    "owner": "sandbaseai",
+    "repo": "sandbase-harness",
+    "name": "SandBase Harness",
+    "category": "runtime",
+    "featured": false,
+    "stars": 597,
+    "version": "v0.3.2",
+    "license": "Apache-2.0",
+    "ref": "96707965931897d7f5489754700036dac8e4382e",
+    "tags": [
+      "runtime",
+      "sandbox",
+      "MCP",
+      "local-first"
+    ],
+    "summary": "本地优先的开源 Agent 运行时：持久会话、沙箱工具、审计与回放，内置一套通过 stdio MCP 接入 DSH 的 bundle。",
+    "note": "当你需要的不只是一个模型循环——想安全地跑生成代码、追踪长时任务、管控工具与凭据时，SandBase Harness 提供了这层运行时。它兼容多家模型，数据全部留在你自己的机器或基础设施上。"
+  },
+  {
+    "owner": "anywhere-labs",
+    "repo": "deepseek-harness-desktop",
+    "name": "DSH Desktop（anywhere-labs）",
+    "category": "runtime",
+    "featured": true,
+    "stars": 7532,
+    "version": "v2.0.0",
+    "license": "MIT",
+    "ref": "b0176832cc4c485735475f0cbd210c32d58ed20b",
+    "tags": [
+      "桌面端",
+      "跨平台",
+      "开箱即用"
+    ],
+    "summary": "为 DSH 插件生态打造的现代化桌面客户端，免配置跑起 Web UI 与插件。",
+    "note": "把 DeepSeek Harness 从命令行搬进一个精致的桌面应用：内置 Node 环境、一键启动、插件管理与主题切换，适合不想折腾环境、只想立刻用起来的人。"
+  },
+  {
+    "owner": "ccch1mneyyy",
+    "repo": "dsh-TUI",
+    "name": "DSH TUI",
+    "category": "runtime",
+    "featured": false,
+    "stars": 1403,
+    "version": "v0.7.1",
+    "license": "MIT",
+    "ref": "b3baa5eb5efa0297011e82d52f1e2437b1760363",
+    "tags": [
+      "TUI",
+      "终端",
+      "npm"
+    ],
+    "summary": "DSH 官方公众号收录的终端 UI：Claude Code 风格，鲸鱼顶栏、实时状态、流式思考、双击 Esc 回滚、上下文进度 + TPS。",
+    "note": "喜欢在终端里干活的人的补位之选。npm 一键安装，把 DSH 的交互体验搬到 TUI，状态栏、流式输出、回滚一应俱全。"
+  },
+  {
+    "owner": "zhu1090093659",
+    "repo": "dsh-web-ui",
+    "name": "DSH Web UI 套件",
+    "category": "ui",
+    "featured": true,
+    "stars": 3049,
+    "version": "v0.1.17",
+    "license": "Apache-2.0",
+    "ref": "cab0eeb6e341d3a0b1fa5172b5c565a15e8f1877",
+    "tags": [
+      "Web UI",
+      "皮肤",
+      "任务板"
+    ],
+    "summary": "DSH Web UI 的插件与皮肤合集：任务板、Git 图、右侧面板、移动端远程 UI、桌宠、实时 Token 统计与皮肤中心。",
+    "note": "一站式把 Web UI 武装到牙齿：从任务板、Git 图到皮肤中心，想要什么面板基本都能在这套合集里找到，是体验党的起点。"
+  },
+  {
+    "owner": "omdsh-dev",
+    "repo": "DSH-better-sidebar",
+    "name": "DSH Better Sidebar",
+    "category": "ui",
+    "featured": false,
+    "stars": 1443,
+    "version": "v0.12.2",
+    "license": "MIT",
+    "ref": "3c196fffc3274bb30367a8fff77f46eff5005d2c",
+    "tags": [
+      "侧边栏",
+      "工作台",
+      "可扩展"
+    ],
+    "summary": "一个侧边栏里的完整工作台：内置文件渲染编辑 / 终端 / Git / 子代理，并支持第三方注册新的侧边栏页面。",
+    "note": "把常用的开发面板收进一条可扩展的侧边栏，还开放了注册接口让别的插件往里加页面——真正把 Web UI 变成工作台。"
+  },
+  {
+    "owner": "Nagi-ovo",
+    "repo": "dsh-visualize",
+    "name": "DSH Visualize",
+    "category": "ui",
+    "featured": false,
+    "stars": 139,
+    "license": "BSD-3-Clause",
+    "ref": "dd41b388db67f146c928772c6242c0acdb5bbeae",
+    "tags": [
+      "生成式 UI",
+      "HTML 卡片",
+      "沙箱渲染"
+    ],
+    "summary": "对话内生成式 UI：让模型把可交互的 HTML 卡片直接渲染进聊天流，支持流式预览与沙箱隔离。",
+    "note": "不再只是纯文本回复——模型可以边想边把交互式卡片画进对话里，并在沙箱中安全渲染，适合演示、原型与数据展示。"
+  },
+  {
+    "owner": "omdsh-dev",
+    "repo": "dsh-genui",
+    "name": "DSH GenUI",
+    "category": "ui",
+    "featured": false,
+    "stars": 121,
+    "version": "v0.8.5",
+    "license": "MIT",
+    "ref": "fd87f36a897cc25e64a4eba1bb98b1210d005fc9",
+    "tags": [
+      "生成式 UI",
+      "图表",
+      "表单",
+      "mermaid"
+    ],
+    "summary": "在回复里内联渲染可交互组件：布局、图表、表单、测验、mermaid、3D 场景，并把交互事件回传给模型。",
+    "note": "比静态卡片更进一步：组件的交互（点选、填表、答题）会作为事件回到模型，形成一个人机往返的动作循环。"
+  },
+  {
+    "owner": "edison7009",
+    "repo": "EchoBird",
+    "name": "EchoBird",
+    "category": "models",
+    "featured": true,
+    "stars": 3032,
+    "version": "v5.6.5",
+    "license": "MIT",
+    "ref": "f161132d8aab099eedafaab266d5a8554c4474bd",
+    "tags": [
+      "模型切换",
+      "一键安装",
+      "多 CLI"
+    ],
+    "summary": "一键安装 + 模型切换：在 DSH、Claude Code、Codex、Qwen、Kimi 等十多种 CLI / harness 之间快速切换模型与 Provider。",
+    "note": "如果你同时用好几个编码 Agent，EchoBird 帮你统一安装与在不同模型 / Provider 之间秒切，省去反复配置的麻烦。"
+  },
+  {
+    "owner": "Make0209",
+    "repo": "dsh-usage-stats",
+    "name": "DSH Usage Stats",
+    "category": "models",
+    "featured": false,
+    "stars": 14,
+    "version": "v1.0.1",
+    "license": "MIT",
+    "ref": "8992d306cdca8857b4362868d591fde3689765b0",
+    "tags": [
+      "用量统计",
+      "热力图",
+      "余额"
+    ],
+    "summary": "GitHub 风格的用量热力图看板：按工作区统计对话轮次与 Token 消耗（含缓存命中率）、DeepSeek 账户余额与工作区别名。",
+    "note": "把「我今天到底花了多少 Token / 还剩多少余额」一眼看清，缓存命中率也一并呈现，适合精打细算的重度用户。"
+  },
+  {
+    "owner": "genius-alray",
+    "repo": "dsh-model-picker",
+    "name": "DSH Model Picker",
+    "category": "models",
+    "featured": false,
+    "stars": 2,
+    "ref": "0f0bf1ed557732de6b6426f652b44067d9916f9c",
+    "tags": [
+      "模型选择器",
+      "模糊搜索",
+      "收藏"
+    ],
+    "summary": "对话式模型选择器：模糊搜索、可折叠的 Provider 分组、收藏与「仅看收藏」筛选，以及思考等级下拉。",
+    "note": "用官方 UI 原语重写了内置模型选择器，模型多、Provider 杂的时候，靠模糊搜索和收藏夹快速定位要用的那一个。"
+  },
+  {
+    "owner": "liustack",
+    "repo": "modlens",
+    "name": "ModLens",
+    "category": "tools",
+    "featured": false,
+    "stars": 2129,
+    "version": "v3.17.2",
+    "license": "MIT",
+    "ref": "90379748534c886b11a4df814507abb677fc8f28",
+    "tags": [
+      "视觉",
+      "OCR",
+      "结构化 JSON"
+    ],
+    "summary": "全网第一个 DSH 视觉插件：给 DeepSeek、GLM 等纯文本模型外挂「看图」能力，粘贴图片即得结构化 JSON 证据（OCR、版面、语义）。",
+    "note": "纯文本模型看不了图？ModLens 充当视觉桥梁：贴一张图，返回结构化的 OCR / 版面 / 语义证据，让文本 Agent 也能「读图」。"
+  },
+  {
+    "owner": "tt-a1i",
+    "repo": "archify",
+    "name": "Archify",
+    "category": "tools",
+    "featured": true,
+    "stars": 13085,
+    "version": "v2.14.0",
+    "license": "MIT",
+    "ref": "cffdd42eed0ebf013aa070378d94facdd3d56b10",
+    "tags": [
+      "架构图",
+      "时序图",
+      "HTML 导出"
+    ],
+    "summary": "画出漂亮且可核验的架构 / 流程 / 时序 / 数据流 / 生命周期图：自包含 HTML，带动效与清晰导出。",
+    "note": "让 Agent 具备「专业画图」能力：从架构到时序，一句话生成可核验、带动画、可导出的图，交付文档时特别省事。"
+  },
+  {
+    "owner": "omdsh-dev",
+    "repo": "dsh-annotation",
+    "name": "DSH Annotation",
+    "category": "tools",
+    "featured": false,
+    "stars": 59,
+    "license": "MIT",
+    "ref": "0b0ceb6415c5c1204b9f73716e905b392acd729b",
+    "tags": [
+      "批注",
+      "选区",
+      "映射回复"
+    ],
+    "summary": "选中文本 → 批注 → 连同消息一起发送；模型的回复会映射回每一处批注。",
+    "note": "像在文档上划重点一样和 Agent 沟通：对具体片段做批注再发送，回复能精确对应到你标注的每个位置。"
+  },
+  {
+    "owner": "titanwings",
+    "repo": "colleague-skill",
+    "name": "同事 Skill（colleague-skill）",
+    "category": "skills",
+    "featured": true,
+    "stars": 22648,
+    "license": "MIT",
+    "ref": "22d96a76e05b91939493f604a0a46198d0d7f978",
+    "tags": [
+      "Skill",
+      "社区现象",
+      "趣味"
+    ],
+    "summary": "把冰冷的离别做成一个温暖的 Skill——社区现象级的「数字生命 1.0」趣味技能包。",
+    "note": "一个火遍社区的创意 Skill：把同事的告别与风格沉淀成可调用的技能。它更像一次「Skill 能做什么」的想象力示范，值得一看。"
+  },
+  {
+    "owner": "foryourhealth111-pixel",
+    "repo": "Vibe-Skills",
+    "name": "Vibe-Skills",
+    "category": "skills",
+    "featured": false,
+    "stars": 2831,
+    "version": "v4.0.0",
+    "license": "Apache-2.0",
+    "ref": "d5ae560440a9ecd83397bb68e77ea1aa2f2c9b78",
+    "tags": [
+      "Skill",
+      "路由",
+      "编排"
+    ],
+    "summary": "一个通用 Skill：自动路由本地各个 Skill，并智能编排 harness 的工作流。",
+    "note": "当你攒了一堆本地 Skill，Vibe-Skills 充当调度中枢：自动判断该用哪个技能、并把它们编排成完整流程。"
+  },
+  {
+    "owner": "NanmiCoder",
+    "repo": "dsh-agent-teams",
+    "name": "DSH Agent Teams",
+    "category": "workflow",
+    "featured": false,
+    "stars": 374,
+    "license": "MIT",
+    "ref": "2b1141248f34ee28870d2e39462c0dbefaa5ffdb",
+    "tags": [
+      "多智能体",
+      "子代理",
+      "并行"
+    ],
+    "summary": "给 DSH 引入多智能体协作（Agent Teams）：把一个任务拆给多个子代理并行推进。",
+    "note": "复杂任务一个 Agent 扛不动时，用 Agent Teams 把它拆成分工明确的子代理团队并行处理，是走向「一个人一支队伍」的关键拼图。"
+  },
+  {
+    "owner": "Q00",
+    "repo": "ouroboros",
+    "name": "Ouroboros",
+    "category": "workflow",
+    "featured": true,
+    "stars": 5443,
+    "version": "v0.51.6",
+    "license": "MIT",
+    "ref": "ab5f27d76d1d7f32f86e7c8309157186cdf03f22",
+    "tags": [
+      "Agent OS",
+      "自进化",
+      "评测闭环"
+    ],
+    "summary": "Agent OS：让 Agent 自己变强。面试式门控、分阶段评测、带预算的进化循环，MCP server，支持 13 种运行时。",
+    "note": "把「让 Agent 自我改进」做成一套可控流程：评分标准与期望结果不进入交给它的成功契约，靠分阶段评测与预算约束驱动可信的进化循环。"
+  },
+  {
+    "owner": "GanyuanRan",
+    "repo": "Aegis",
+    "name": "Aegis",
+    "category": "workflow",
+    "featured": false,
+    "stars": 1020,
+    "version": "v2.8.1",
+    "license": "MIT",
+    "ref": "c8483d63f5b3826bebf30ec6cf84d76cdab03907",
+    "tags": [
+      "架构感知",
+      "基线",
+      "防漂移"
+    ],
+    "summary": "让编码 Agent 具备架构感知：基线优先、证据核验、漂移检查，在长任务中保持安全。",
+    "note": "长任务里 Agent 容易「跑偏」。Aegis 用基线优先 + 证据核验 + 漂移检测，让改动始终对齐既定架构，降低失控风险。"
+  }
+]
